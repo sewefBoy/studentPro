@@ -26,7 +26,7 @@ public class AdminDAOImpl extends SqlSessionDaoSupport implements IAdminDAO {
     }
 
     public boolean doUpdate(Admin vo) throws SQLException {
-        return false;
+        return super.getSqlSession().update("AdminNS.doUpdateLastDate",vo)>0;
     }
 
     public boolean doRemove(Set<?> ids) throws SQLException {

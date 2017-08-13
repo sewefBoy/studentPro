@@ -5,9 +5,11 @@
 <configuration>
 	<typeAliases>
         <typeAlias type="cn.ylcto.student.vo.Admin" alias="Admin"></typeAlias>
+        <typeAlias type="cn.ylcto.student.vo.Classes" alias="Classes"></typeAlias>
     </typeAliases>
 
     <mappers>
         <mapper resource="mapping/AdminMapper.xml"></mapper>
+        <mapper resource="mapping/ClassesMapper.xml"></mapper>
     </mappers>
 </configuration>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ClassesNS">
+    <resultMap id="classesResultMap" type="Classes">
+        <id property="cid" column="cid"></id>
+        <result property="cname" column="cname"></result>
+        <result property="note" column="note"></result>
+    </resultMap>
+
+   <!--实现增加操作-->
+    <insert id="doCreate" parameterType="Classes">
+      insert into classes (cname,note) values(#{cname},#{note})
+    </insert>
+
+    <select id="findByCname" parameterType="String" resultMap="classesResultMap">
+        select * from classes where cname=#{cname}
+    </select>
+
+</mapper>

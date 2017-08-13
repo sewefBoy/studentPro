@@ -18,6 +18,10 @@ public class AdminServiceImpl implements IAdminService{
     IAdminDAO adminDAO;
     public Admin findLogin(Admin vo) throws SQLException {
         Admin admin = adminDAO.findLogin(vo);
+        if (admin != null){
+            //vo.setLastdate(new java.util.Date());
+            //this.adminDAO.doUpdate(vo);
+        }
         return admin;
     }
 }

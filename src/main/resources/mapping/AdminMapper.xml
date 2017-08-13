@@ -11,4 +11,9 @@
     <select id="findLogin" parameterType="Admin" resultType="Admin">
       select * from admin where email=#{email} and password=#{password}
     </select>
+
+    <update id="doUpdateLastDate" parameterType="Admin">
+        update admain set lastdate=#{lastdate} where email=#{email} and password=#{password}
+    </update>
+
 </mapper>

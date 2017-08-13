@@ -1,0 +1,16 @@
+$(function(){
+    $("#insertForm").validate({
+        debug:true,
+        submitHandler:function(form){
+            form.submit();
+        },
+        rules:{
+            "cname":{
+                required:true
+            },
+            "note":{
+                required:true
+            }
+        }
+    });
+});
