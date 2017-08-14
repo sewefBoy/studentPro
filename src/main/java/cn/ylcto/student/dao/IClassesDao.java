@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface IClassesDao extends IDAO<String,Classes> {
     public Classes findByCname(String cname) throws Exception;
+
+    public boolean deleteClasses(List<Integer> cids) throws Exception;
 }

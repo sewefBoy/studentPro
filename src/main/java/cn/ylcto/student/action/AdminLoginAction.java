@@ -22,22 +22,18 @@ public class AdminLoginAction extends DefaultAction{
 
     @Resource
     private IAdminService adminService;
-    @Autowired
-    private HttpServletRequest request;
 
     @RequestMapping(value = "admin_login")
-    public ModelAndView login(Admin admin) throws SQLException {
+    public ModelAndView login(HttpServletRequest request, Admin admin) throws SQLException {
         ModelAndView modelAndView = new ModelAndView(super.getResource("pages.forward"));
         Admin adminVo = this.adminService.findLogin(admin);
         if(adminVo == null){
-            super.setMsgAndPath(modelAndView,"admin.login.fail","admin.login.fail");
+            super.setMsgAndPath(modelAndView,"admin.login.fail","page.admin.login.fail");
         }
         else{
-            super.setMsgAndPath(modelAndView,"admin.login.SUCCESS","admin.login.success");
+            super.setMsgAndPath(modelAndView,"admin.login.SUCCESS","page.admin.login.success");
             request.getSession().setAttribute("email", adminVo.getEmail());
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            String lastdate = sdf.format(adminVo.getLastdate());
-            request.getSession().setAttribute("lastdate", lastdate);
+            request.getSession().setAttribute("lastdate",new SimpleDateFormat("yyyy-MM-dd").format(adminVo.getLastdate())); // 取得最后一次登录日期操作
         }
         return modelAndView;
     }

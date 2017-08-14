@@ -17,4 +17,16 @@
         select * from classes where cname=#{cname}
     </select>
 
+    <select id="findAll" parameterType="java.util.List" resultMap="classesResultMap">
+        select cid,cname,note from classes
+    </select>
+
+
+    <delete id="deleteClasses" parameterType="java.util.List">
+        delete from classes where cid in
+        <foreach item="cid" collection="list" open="(" separator="," close=")">
+            #{cid}
+        </foreach>
+    </delete>
+
 </mapper>

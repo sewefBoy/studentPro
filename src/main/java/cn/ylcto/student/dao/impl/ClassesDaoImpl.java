@@ -43,7 +43,8 @@ public class ClassesDaoImpl extends SqlSessionDaoSupport implements IClassesDao{
 
     @Override
     public List<Classes> findAll() throws SQLException {
-        return null;
+        List<Classes> classesList = super.getSqlSession().selectList("ClassesNS.findAll");
+        return classesList;
     }
 
     @Override
@@ -59,5 +60,9 @@ public class ClassesDaoImpl extends SqlSessionDaoSupport implements IClassesDao{
     @Override
     public Classes findByCname(String cname) throws Exception {
         return super.getSqlSession().selectOne("ClassesNS.findByCname",cname);
+    }
+
+    public boolean deleteClasses(List<Integer> cids) throws Exception{
+        return super.getSqlSession().delete("ClassesNS.deleteClasses",cids)>0;
     }
 }

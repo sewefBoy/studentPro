@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by sewef on 2017/8/13.
@@ -27,4 +28,17 @@ public class ClassesServiceImpl implements IClassesService {
         }
         return true;
     }
+
+    @Override
+    public List<Classes> findAll() throws Exception {
+        List<Classes> classesList = classesDao.findAll();
+        return classesList;
+    }
+
+    @Override
+    public boolean deleteClasses(List<Integer> cids) throws Exception {
+        return classesDao.deleteClasses(cids);
+    }
+
+
 }
