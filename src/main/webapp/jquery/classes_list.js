@@ -72,7 +72,7 @@ $(function(){
         var url = "/pages/back/classes/classes_deleteClasses.action";
         var data = getCheckValue();
         if (data == ""){
-            alert("请选择数据后操作！")
+            alert("请选择数据后操作")
         }
         else{
             $.post(url,{"cids":data},function(obj){
