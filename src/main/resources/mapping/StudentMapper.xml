@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="StudentNS">
+    <resultMap id="studentResultMap" type="Student">
+        <id property="sid" column="sid"/>
+        <result property="name" column="name"/>
+        <result property="age" column="age"/>
+        <result property="sex" column="sex"/>
+        <result property="address" column="address"/>
+        <association property="classes" column="cid" javaType="Classes" resultMap="classesNS.classesResultMap"/>
+    </resultMap>
+
+    <insert id="doCreate" parameterType="Student">
+        INSERT INTO student(sid,name,age,sex,address,cid)VALUES (#{sid},#{name},#{age},#{sex},#{address},#{classes.cid})
+    </insert>
+
+</mapper>

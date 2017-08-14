@@ -6,10 +6,12 @@
 	<typeAliases>
         <typeAlias type="cn.ylcto.student.vo.Admin" alias="Admin"></typeAlias>
         <typeAlias type="cn.ylcto.student.vo.Classes" alias="Classes"></typeAlias>
+        <typeAlias type="cn.ylcto.student.vo.Student" alias="Student"></typeAlias>
     </typeAliases>
 
     <mappers>
         <mapper resource="mapping/AdminMapper.xml"></mapper>
         <mapper resource="mapping/ClassesMapper.xml"></mapper>
+        <mapper resource="mapping/StudentMapper.xml"></mapper>
     </mappers>
 </configuration>
