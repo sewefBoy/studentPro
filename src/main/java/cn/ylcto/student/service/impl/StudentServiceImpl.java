@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by sewef on 2017/8/14.
@@ -18,5 +21,18 @@ public class StudentServiceImpl implements IStudentService {
     @Override
     public boolean insertStu(Student vo) throws SQLException {
         return studentDao.doCreate(vo);
+    }
+
+    @Override
+    public Map<String, Object> findAllBySplit(Integer currentPage, Integer lineSize) throws SQLException {
+        Map<String,Object> map  = new HashMap<>();
+        map.put("allStudent",this.studentDao.findAllBySplit(currentPage,lineSize));
+        map.put("studentCount",this.studentDao.getAllCount());
+        return map;
+    }
+
+    @Override
+    public Integer getAllCount() throws SQLException {
+        return studentDao.getAllCount();
     }
 }

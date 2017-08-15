@@ -8,11 +8,19 @@
         <result property="age" column="age"/>
         <result property="sex" column="sex"/>
         <result property="address" column="address"/>
-        <association property="classes" column="cid" javaType="Classes" resultMap="classesNS.classesResultMap"/>
+        <association property="classes" column="cid" javaType="Classes" resultMap="ClassesNS.classesResultMap"/>
     </resultMap>
 
     <insert id="doCreate" parameterType="Student">
         INSERT INTO student(sid,name,age,sex,address,cid)VALUES (#{sid},#{name},#{age},#{sex},#{address},#{classes.cid})
     </insert>
+    <!--分页-->
+    <select id="findAllBySplit" parameterType="java.util.List" resultMap="studentResultMap">
+        select sid,name,age,sex,address,cid from student limit ${start},#{lineSize}
+    </select>
+    <!--查询全部数据量-->
+    <select id="getAllCount" parameterType="java.util.Map" resultType="Integer">
+        select count(sid) from student
+    </select>
 
 </mapper>

@@ -76,7 +76,7 @@
                                 <a href="/pages/back/student/student_insert.jsp">增加学生</a>
                             </li>
                             <li>
-                                <a href="buttons.html">学生列表</a>
+                                <a href="/pages/back/student/student_list.jsp">学生列表</a>
                             </li>
                         </ul>
                     </li>

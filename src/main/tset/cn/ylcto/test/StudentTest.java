@@ -8,6 +8,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by sewef on 2017/8/14.
@@ -33,6 +35,18 @@ public class StudentTest {
 
         try {
             studentService.insertStu(student);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void findAllBySplit(){
+        try {
+            Map<String,Object> map = studentService.findAllBySplit(1,2);
+//            for (Student s : list){
+//                System.out.println(s.getName());
+//            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -76,7 +76,7 @@ function loadData() {   // 定义数据读取的操作函数
 };
 
 function addRow(sid,name,age,sex,address,cid) {
-    var str = "<tr><td><input type='checkbox' class='text-center' name='sid' id='sid' value='"+sid+"'></td>" +
+    var str = "<tr><td class='text-center'><input type='checkbox' class='text-center' name='sid' id='sid' value='"+sid+"'></td>" +
         "<td class='text-center' id='sid-"+sid+"'>"+sid+"</td>" +
         "<td class='text-center' id='name-"+sid+"'>"+name+"</td>" +
         "<td class='text-center' id='age-"+sid+"'>"+age+"</td>" +
