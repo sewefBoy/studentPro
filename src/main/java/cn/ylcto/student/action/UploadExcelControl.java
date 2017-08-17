@@ -29,6 +29,9 @@ public class UploadExcelControl {
      */
     @RequestMapping(value="upload",method={RequestMethod.GET,RequestMethod.POST})
     public  String  uploadExcel(HttpServletRequest request) throws Exception {
+        long startTime = System.currentTimeMillis();    //获取开始时间
+        System.out.println(startTime);
+
         MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
         System.out.println("通过传统方式form表单提交方式导入excel文件！");
 
@@ -55,6 +58,9 @@ public class UploadExcelControl {
             System.out.println("打印信息-->编号:"+vo.getSid()+"  姓名："+vo.getName()+"   性别："+vo.getSex()+"   年龄："+vo.getAge()
                 +"地址："+vo.getAddress());
         }
+        long endTime = System.currentTimeMillis();    //获取结束时间
+        System.out.println(endTime);
+        System.out.println(endTime-startTime);
         return "result";
     }
 
