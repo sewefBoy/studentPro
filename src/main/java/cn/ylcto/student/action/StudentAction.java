@@ -47,10 +47,15 @@ public class StudentAction extends DefaultAction {
         }
     }
 
+    @RequestMapping(value = "student_update")
+    public void updateById(HttpServletResponse response, Student student){
+        try{
+            super.print(response,this.studentService.updateStudent(student));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
-
-
-
+    }
 
     @Override
     public String getText() {

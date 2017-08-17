@@ -78,6 +78,9 @@
                             <li>
                                 <a href="/pages/back/student/student_list.jsp">学生列表</a>
                             </li>
+                            <li>
+                                <a href="/main.jsp">导入学生</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>

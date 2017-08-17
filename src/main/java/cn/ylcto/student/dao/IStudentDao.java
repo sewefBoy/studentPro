@@ -14,4 +14,6 @@ public interface IStudentDao extends IDAO<String,Student>{
     public List<Student> findAllBySplit(Integer currentPage, Integer lineSize) throws SQLException;
 
     public Integer getAllCount() throws SQLException;
+
+    public boolean insertByBatch(List<Student> students) throws SQLException;
 }

@@ -25,7 +25,7 @@ public class StudentServiceImpl implements IStudentService {
 
     @Override
     public Map<String, Object> findAllBySplit(Integer currentPage, Integer lineSize) throws SQLException {
-        Map<String,Object> map  = new HashMap<>();
+        Map<String,Object> map  = new HashMap<String,Object>();
         map.put("allStudent",this.studentDao.findAllBySplit(currentPage,lineSize));
         map.put("studentCount",this.studentDao.getAllCount());
         return map;
@@ -34,5 +34,15 @@ public class StudentServiceImpl implements IStudentService {
     @Override
     public Integer getAllCount() throws SQLException {
         return studentDao.getAllCount();
+    }
+
+    @Override
+    public boolean updateStudent(Student vo) throws SQLException {
+        return studentDao.doUpdate(vo);
+    }
+
+    @Override
+    public boolean insertByBatch(List<Student> students) throws SQLException{
+        return studentDao.insertByBatch(students);
     }
 }

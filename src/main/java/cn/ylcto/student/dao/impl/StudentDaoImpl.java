@@ -28,7 +28,7 @@ public class StudentDaoImpl extends SqlSessionDaoSupport implements IStudentDao{
 
     @Override
     public boolean doUpdate(Student vo) throws SQLException {
-        return false;
+        return super.getSqlSession().update("StudentNS.updateById",vo)>0;
     }
 
     @Override
@@ -67,5 +67,10 @@ public class StudentDaoImpl extends SqlSessionDaoSupport implements IStudentDao{
     @Override
     public Integer getAllCount() throws SQLException {
         return super.getSqlSession().selectOne("StudentNS.getAllCount");
+    }
+
+    @Override
+    public boolean insertByBatch(List<Student> students) throws SQLException{
+        return  super.getSqlSession().insert("StudentNS.insertByBatch", students)>0;
     }
 }

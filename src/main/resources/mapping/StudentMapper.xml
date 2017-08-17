@@ -23,4 +23,16 @@
         select count(sid) from student
     </select>
 
+    <update id="updateById" parameterType="Student">
+        UPDATE student SET name=#{name},age=#{age},sex=#{sex},address=#{address},cid=#{classes.cid} WHERE sid=#{sid}
+    </update>
+
+
+    <insert id="insertByBatch" parameterType="java.util.List">
+        insert into student (sid,name,age,sex,address,cid)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.sid,jdbcType=VARCHAR}, #{item.name,jdbcType=VARCHAR},#{item.age,jdbcType=INTEGER},#{item.sex,jdbcType=INTEGER},#{item.address,jdbcType=VARCHAR},#{item.classes.cid,jdbcType=INTEGER})
+        </foreach>
+    </insert>
 </mapper>
